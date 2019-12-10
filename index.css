@@ -1,0 +1,1518 @@
+   
+    /* last updated 09-12-2018 */
+    /* local css repository: ~/SourceCode/SourceAndProjects/CSS */
+    /* the HTML 5 140 reserved color names grouped by color: https://www.w3schools.com/colors/colors_groups.asp */
+    /*
+       CSS STYLE PRECEDENCE (highest to lowest)
+        
+       !important keyword   =>       0
+       inline styles                 1
+       #IDs                          2
+       .classes                      3
+       tags(redefines)               4 
+       last duplicate style          5
+    
+    */
+     
+    @charset "utf-8";
+    
+    /* Redefines */
+
+    HTML {font-family: sans-serif;}
+    BODY{font-family:Arial; max-width:1024px;}
+    P, TD, TH{font-family:Arial;font-size:10pt;}
+    ASIDE{display:block;margin:15px;}
+    HEADER{display:block;text-align:center;}
+    NAV
+    {
+      display:block;
+      padding:10px;
+      font-size:10px;
+      margin:5px;
+      text-align:center;
+      background-color:transparent;
+    }
+    SECTION{max-width:98%;padding:10px;}
+    ARTICLE 
+    {
+      width: 600px;
+      min-height: 480px;
+      margin: 0 auto;
+      padding: 10px;
+      background-image: repeating-linear-gradient(to bottom, transparent 1px, transparent 20px, rgb(0,0,150) 21px),
+                        linear-gradient(to bottom right, white, #ccc);
+      border-radius: 20px;
+      box-shadow: 5px 5px 10px rgba(0,0,0,0.7);
+      line-height: 1.5;
+    }
+    FOOTER{clear: both;display: block;padding: 15px;}
+    H1,H2,H3,H4,H5,H6{page-break-after:avoid; text-align:center;}
+    UL{ list-style-type: none;}
+
+    CODE{font-family:courier;font-size:10pt;}
+    PRE{font-size:9pt; padding:2px;width:800px;text-align:left;}
+    FIGURE{padding:8px;}
+    FIGIMAGE{break-after:always;}
+    FIGCAPTION{margin: 2px;font-size: 11px;font-style:italic;color:#444;}
+    
+    A:LINK{}    /* normal */
+    A:VISITED{} /* visited */
+    A:HOVER{}   /* hovering */
+    A:ACTIVE{}  /* click */
+
+    /* Classes */
+        
+    /* My classes that I've developed myself */
+    
+    /* classes I use all the time */
+    .acmnSnippet {font-weight:bold;font-style:italic;}
+    .acmnMyAssignment{border:1px green solid;font-weight:bold;}
+    .classDate{border:2px red solid;font-weight:bolder;text-decoration:underline;}
+    .acmnMyAnswer{border:1px black solid;}
+    .acmnDoneLight{background-color: LightGray;}
+    .acmnDoneDark{background-color: DarkGray;}
+    .acmnGroupProject{background-color: rgb(170, 255, 170);}
+    .acmnCodeIt{font-family:courier;}
+    .acmnUnderlineIt{text-decoration:underline;}
+    .acmnImportant1{color:red; font-weight:bold; font-size:12pt;font-family:sans-serif;}
+    .acmnImportant2{font-family:verdana;font-weight:bold;color:red;}
+    .acmnKeywords {color: #D31242;font-size: 14pt;}
+    
+    .redSmall{line-height:18.0pt;font-size:8pt;color:#A81817;}
+    .redLight{color:#ff3300;}
+    .grayBehind 
+    {
+      background-color: #555;
+      color: white;
+      display:block;
+      margin: 10px;
+      padding: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      -webkit-box-shadow: 2px 2px 20px #888;
+      -webkit-transform: rotate(0deg);
+      -moz-box-shadow: 2px 2px 20px #888;
+      -moz-transform: rotate(0deg);
+    }
+
+    /* for backward compatibility only. Use figure and figcaption instead */
+    .acmnImageCaption{margin: 2px;font-size: 12px;font-style:italic;}  
+    .grayAddressNormal{font-size:8pt;color:gray;}
+    .grayAddressItalic{font-size:12px;font-weight: 300;color:gray;font-style:italic}
+    .LimeLine{border-bottom: 2px solid #0bce7e;width:200px;}
+    .pinkItalic{font-style:italic;color:#EF118C;}
+    .acmnCursiveHandwriting{font-family: 'Edwardian Script ITC'; font-size:18pt; color: Navy;}
+    .greenGreen1{font-weight:bold; color:#3B783B;}
+    .asideLeft{float:left;border:1px solid #999;}
+    .asideRight{float:right;border:1px solid #999;}
+    .blueCornflower{background-color: #8CA4D4;color: #2F2F65;font-weight: bold;font-size: 18px;}
+    
+    /* My header classes */
+    
+    .clsH0{font-size:72pt;font-weight:bolder;}
+    .clsH1{font-size:64pt;font-weight:bolder;}
+    .clsH2{font-size:48pt;font-weight:bolder;}
+    .clsH3{font-size:24pt;font-weight:bolder;}
+    .clsH4{font-size:18pt;font-weight:bolder;}
+    .clsH5{font-size:16pt;font-weight:bolder;}
+    .clsH6{font-size:14pt;font-weight:bold;}
+    .clsH7{font-size:12pt;font-weight:bold;}
+    .clsH8{font-size:10pt;font-weight:bold;}
+    .clsH9{font-size:8pt;font-weight:bold;}
+
+    /* stolen from CPI111 ASU Fall 2013 */
+    .greenLightBig{color: #92C500;font-family: serif;font-weight: bold;font-size: 18pt;}
+    .greenOliveForeground{color:#556B2F;}
+    .greenOliveBackground{color:white; background-color:#556B2F;}
+    .paleBackgroundPink{background-color:#ffe1ff;}
+    .paleBackgroundLightGray{background-color:#eff0f1;}
+    .paleBackgroundGold{background-color:#fff7e5;}
+    .pinkyDashed{background-color:#ffe1ff;border:1px dashed fuchsia;}
+    
+    /* webkit complex style class-is-broken indicators */
+    .acmnDropShadow 
+    {
+      -moz-box-shadow: 3px 3px 4px #999; /* Firefox */
+      -webkit-box-shadow: 3px 3px 4px #999; /* Safari/Chrome */
+      box-shadow: 3px 3px 4px #999; /* Opera and other CSS3 supporting browsers */
+    }
+
+    .acmnRaisedBox1
+    {
+      -moz-box-shadow: 3px 3px 4px #999; /* Firefox */
+      -webkit-box-shadow: 3px 3px 4px #999; /* Safari/Chrome */
+      box-shadow: 3px 3px 4px #999; /* Opera and other CSS3 supporting browsers */
+      border-top: 1px solid #CCC;
+      border-left: 1px solid #CCC;
+    }
+
+    .SlapStamp
+    {
+      color: #F47D31;
+      background-color: #fff;
+      -webkit-box-shadow: 2px 2px 20px #888;
+      -webkit-transform: rotate(-45deg);
+      -moz-box-shadow: 2px 2px 20px #888;
+      -moz-transform: rotate(-45deg);
+      position: absolute;
+      padding: 0px 150px;
+      text-align:center;
+    }
+    
+    /* Stolen from Eric Meyer meyerweb.com */
+    .blueSky{background: #B4D5FF; font-weight: bold;}
+    .yellowWarning {background: #FF8; color: red; border: 2px solid; padding: 1em;}
+    .acmnYellowRedLining{background: #FF8; color: red; border: 1px solid red;}
+    
+    /* Stolen from Stack Overflow/Superuser */
+  kbd 
+    {
+      display: inline-block;
+      margin: 0 .1em;
+      padding: .1em .6em;
+      font-size: 11px;
+      line-height: 1.4;
+      color: #242729;
+      text-shadow: 0 1px 0 #FFF;
+      background-color: #e1e3e5;
+      border: 1px solid #adb3b9;
+      border-radius: 3px;
+      box-shadow: 0 1px 0 rgba(12, 13, 14, 0.2), 0 0 0 2px #FFF inset;
+      white-space: nowrap;
+    }
+    .acmnDashedAlert
+    {
+      padding:5px;
+      font-weight:bold;
+      margin-bottom:10px;
+      margin-top:5px;
+      border:2px dotted #AE0000;
+    }
+    .btn_StackOverflow
+    {
+      color:#3E6D8E;
+      background-color:#E0EAF1;
+      border-top: 1px solid #DDD;
+      border-left: 1px solid #DDD;
+      border-radius: 5px;
+      border-bottom:1px solid #3E6D8E;
+      border-right:1px solid #7F9FB6;
+      padding:3px 4px 3px 4px;
+      margin:2px 2px 2px 0;
+    }
+    .whiteBlack
+    {
+      color:#fff;
+      background-color:#333;
+      border:1px solid #333;
+      margin:0 3px 3px 0;
+      padding:0px 6px 0px 3px;
+      display:inline-block;
+    }
+    .orangeYellowBack{background-color:#ffefc6;}
+    .orangeLightBack{background-color:#ff9900;color:white;}
+    .orangeDarkBack{background-color:#df5c13;color:white;}
+    .orangeLightFore{color:#ff9900;}
+    .orangeDarkFore{color:#df5c13;}
+    
+    .redWarning
+    {
+      background-color:#E23535;
+      color:#FFFFFF;
+      font-size:10px;
+      padding:0 5px 1px;
+    }
+    
+    /* Stolen from javadoc */
+    .mauveDarkBack{background:#BBBBFF;}
+    .mauveLightBack{background:#DDDDFF;}
+    .mauveDarkFore{color:#5555FF;}
+    .mauveLightFore{color:#BBBBFF;}    
+    .blueDarkBack{background-color:#00008B;color:#FFFFFF;}
+    
+    /* Stolen from John Urbanek */
+    .blueBlack{background-color: #333333;color:#00CCFF;text-align:center;font-style:italic;}
+    .blueBold{color:#3366FF;font-weight:bolder;}
+    .navy{color:navy;}
+    .navyBold{color:navy;font-weight:bold;}
+    .aquaCyanNormal{color:#2b91af;}
+    .aquaCyanBold{color:#2b91af;font-weight:bold;}
+    .aquaNormal{color:#0078C0;}
+    .aquaBold{color:#0078C0;font-weight:bold;}
+    
+    /* Stolen from Adobe */
+    .adobe_s1 {color: #58595B;font-size: 6pt;}
+    .adobe_s2 {color: #58595B;font-size: 8pt;}
+    .adobe_s3 {color: #58595B;font-size: 12pt;}
+    .adobe_s4 {color: #58595B;font-size: 14pt;}
+    .adobe_s5 {color: #58595B;font-size: 18pt;}
+    .adobe_s6 {color: #D31242;font-size: 8pt;}
+    .adobe_s7 {color: #D31242;font-size: 12pt;}
+    .adobe_s8 {color: #D31242;font-size: 14pt;}
+    .adobe_s9 {color: #D31242;font-size: 18pt;}
+    .adobe_s10 {color: #BE2D00; font-size: 24pt;}
+    .adobe_s11 {color: #BE2D00; font-size: 32pt;}
+    .adobe_s12 {color: #007DC5;font-weight: bold;font-size: 6pt;}
+    .adobe_s13 {color: #007DC5;font-weight: bold;font-size: 8pt;}
+    .adobe_s14 { color: #40458C; font-size: 8pt; }
+    .adobe_s15 { color: #40458C; font-size: 10pt; }
+    .adobe_s16 { color: #40458C; font-size: 12pt; }
+    .adobe_s17 { color: #40458C; font-style: italic; font-weight: bold; font-size: 12pt; }
+    .adobe_s18 { color: #40458C; font-size: 18pt; }
+    .adobe_s31 {color: #231F20; font-weight: normal; font-size: 8pt; }
+    .adobe_s41 {color: #00ADEF; font-weight: normal; font-size: 10pt; }
+    .adobe_s51 {color: #00ADEF; font-weight: normal; font-size: 8pt; }
+    
+    /* stolen from Radek Suski and Protostar */
+    
+    .aqua1 {color:white;background-color:#61b6ff}
+    .aqua2 {color:white;background:#2892ff!important;}
+    .aqua3{color:yellow;background:#2e9fff;}
+    .aquaComplex
+    {
+      color:Yellow;
+      text-shadow:0 -1px 0 rgba(0,0,0,.25);
+      background-color:#49afcd;
+      background-image:-webkit-linear-gradient(to bottom, #5bc0de, #2f96b4);
+      background-image:linear-gradient(to bottom, #5bc0de, #2f96b4);
+      background-repeat:repeat-x;  
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5bc0de', endColorstr='#ff2f96b4', GradientType=0);
+      border-color:#2f96b4 #2f96b4 #1f6377;
+      border-color:rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+      filter:progid:DXImageTransform.Microsoft.gradient(enabled=false)
+    }
+    .aqua5{color:white;background-color:#2f96b4;}
+    .greenTeal1{background:#6fa42a;}
+    .greenTeal2{background-color:#51a351;}
+    .greenWhite1{color:white;background:#4bad00;}
+    .goldBlack{background:#ffc62e;}
+    .btn_Blue
+    {
+      text-shadow:0 -1px 0 rgba(0,0,0,.25);
+      color: #999;
+      border-radius: 5px;
+      background-color:#004cd6;
+      background-image:-webkit-linear-gradient(to bottom, #0069d6, #0022d6);
+      background-image:linear-gradient(to bottom, #0069d6, #0022d6);
+      background-repeat:repeat-x;
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0069d6', endColorstr='#ff0022d6', GradientType=0);
+      border-color:#0022d6 #0022d6 #00168a;
+      border-color:rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+      filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);
+      padding:3px 4px 3px 4px;
+    }
+
+    .btn_LightFlesh
+    {
+      text-shadow:0 -1px 0 rgba(0,0,0,.25);
+      border-radius: 5px;
+      background-color:#ff855c;
+      background-image:-webkit-linear-gradient(to bottom, #ff9c7b, #ff632e);
+      background-image:linear-gradient(to bottom, #ff9c7b, #ff632e);
+      background-repeat:repeat-x;
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff9c7b', endColorstr='#ffff632e', GradientType=0);
+      border-color:#ff632e #ff632e #e13900;
+      border-color:rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+      filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);
+      padding:3px 4px 3px 4px;
+    }
+    .btn_DarkFlesh
+    {
+      text-shadow:0 -1px 0 rgba(0,0,0,.25);
+      border-radius: 5px;
+      background-color:#ff632e;
+      background-image:-webkit-linear-gradient(to bottom, #ff9c7b, #ff632e);
+      background-image:linear-gradient(to bottom, #ff9c7b, #ff632e);
+      background-repeat:repeat-x;
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff9c7b', endColorstr='#ffff632e', GradientType=0);
+      border-color:#ff632e #ff632e #e13900;
+      border-color:rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+      filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);
+      padding:3px 4px 3px 4px;
+    }
+    .btn_Sunburn
+    {
+      text-shadow:0 -1px 0 rgba(0,0,0,.25);
+      background-color:#da4f49;
+      background-image:-webkit-linear-gradient(to bottom, #ee5f5b, #bd362f);
+      background-image:linear-gradient(to bottom, #ee5f5b, #bd362f);
+      background-repeat:repeat-x;
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffbd362f', GradientType=0);
+      border-color:#bd362f #bd362f #802420;
+      border-color:rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+      filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);
+      padding:3px 4px 3px 4px;
+      border-radius: 5px;
+    }
+    .btn_Inverse
+    {
+      color: white;
+      text-shadow:0 -1px 0 rgba(0,0,0,.25);
+      background-color:#363636;
+      background-image:-webkit-linear-gradient(to bottom, #444, #222);
+      background-image:linear-gradient(to bottom, #444, #222);
+      background-repeat:repeat-x;
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff444444', endColorstr='#ff222222', GradientType=0);
+      border-color:#222 #222 #000;
+      border-color:rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+      filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);
+      padding:3px 4px 3px 4px;
+      border-radius: 5px;      
+    }
+    .btn_PinkDark
+    {
+      text-shadow:0 -1px 0 rgba(0,0,0,.25);
+      background-color:#bd362f;
+      background-image:-webkit-linear-gradient(to bottom, #ee5f5b, #bd362f);
+      background-image:linear-gradient(to bottom, #ee5f5b, #bd362f);
+      background-repeat:repeat-x;
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffbd362f', GradientType=0);
+      border-color:#bd362f #bd362f #802420;
+      border-color:rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+      filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);
+      padding:3px 4px 3px 4px;
+      border-radius: 5px;
+    }
+    .btn_Darkie
+    {
+      color: white;
+      text-shadow:0 -1px 0 rgba(0,0,0,.25);
+      background-color:#222;
+      background-image:-webkit-linear-gradient(to bottom, #ee5f5b, #bd362f);
+      background-image:linear-gradient(to bottom, #ee5f5b, #bd362f);
+      background-repeat:repeat-x;
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffbd362f', GradientType=0);
+      border-color:#bd362f #bd362f #802420;
+      border-color:rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+      filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);
+      padding:3px 4px 3px 4px;
+      border-radius: 5px;
+    }
+
+        
+    /* stolen from waves.com */
+    .fleshBox1
+    {
+      background-color: #ffc4c4;
+      border: 1px solid #7b0812;
+      border-radius: 5px;
+      color: #7b0812;
+      padding: 5px 10px;
+    }
+    
+    /* stolen from net-tuts */
+    .btn_BlueBlueBig
+    {
+      width:400px;
+      margin: 200px auto;
+      background: #014464;
+      background: -moz-linear-gradient(top, #0D658E, #0C577A 50%, #014D71 51%, #003E5C);
+      background: -webkit-gradient(linear, left top, left bottom, 
+                  color-stop(0, #0E658E), color-stop(.5, #0C577A), 
+                  color-stop(.5, #014D71), to(#003E5C));
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+      border: 1px solid #368DBE;
+      border-top: 1px solid #C3D6DF;
+      -moz-box-shadow: 0 1px 3px black;
+      -webkit-box-shadow: 0 1px 3px black;
+      -box-shadow: 0 1px 3px black;  
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      color:blue;
+      font-size: 50px;
+      font-weight: bold;
+      text-shadow: 0 1px 0 #99FFFF;
+      padding:3px 4px 3px 4px;
+      border-radius: 5px;      
+    }
+    .btn_BlueYellowBig
+    {
+      width:400px;
+      margin: 200px auto;
+      background: #014464;
+      background: -moz-linear-gradient(top, #0D658E, #0C577A 50%, #014D71 51%, #003E5C);
+      background: -webkit-gradient(linear, left top, left bottom, 
+                  color-stop(0, #0E658E), color-stop(.5, #0C577A), 
+                  color-stop(.5, #014D71), to(#003E5C));
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+      border: 1px solid #368DBE;
+      border-top: 1px solid #22D6DF;
+      -moz-box-shadow: 0 1px 3px black;
+      -webkit-box-shadow: 0 1px 3px black;
+      -box-shadow: 0 1px 3px black;  
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      color:Yellow;
+      font-size: 50px;
+      font-weight: bold;
+      text-shadow: 0 1px 0 #EE0000;
+      padding:3px 4px 3px 4px;
+      border-radius: 5px;      
+    }
+    .btn_BlueSmall 
+    {
+      line-height: 1;
+      padding: 7px 10px;
+      font-weight: bold;
+      color: white;
+      background-color: #39c;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -khtml-border-radius: 5px;
+      border-radius: 5px;
+      -moz-box-shadow: 0 1px 3px black;
+      -webkit-box-shadow: 0 1px 3px black;
+      -khtml-box-shadow: 0 1px 3px black;
+      -box-shadow: 0 1px 3px black;  
+      text-shadow: 0 1px 0 black;
+    }
+     
+    /* stolen from ASU GPH 211 syllabus Spring 2014 Updated for NAU Fall 2016 */
+    
+    /* use with one of the two btn classes below */
+    .EstiloBtn 
+    {
+      border: 1px solid transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 16px;
+      line-height: 1.44;
+      margin-bottom: 0;
+      padding: 6px 19px;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    /* ASU official color: #8C1D40 */
+    
+    .Estilo29ASU {font-size: 30px;color: #F7C709;}
+    .Estilo31ASU {color: #8C1D40;}
+    .Estilo32ASU {font-size: 15px;color: #8C1D40;font-weight: bold;}
+    .Estilo34ASU {color: #8C1D40; font-weight: bold;}
+    .Estilo40ASU {font-size: 26px; color: #660000; font-weight: bold;}
+    .Estilo42ASU {color: #660000;}
+    .Estilo44ASU {color: #660000; font-weight: bold;}
+    .Estilo47ASU {color: #AA0000;}
+    .Estilo50ASU {font-size: 22px; color: #660000; font-weight: bold;}
+    .EstiloBtnASU{background-color: #8C1D40;color: white;}
+
+    /* NAU official color: #003E7E */
+    .Estilo29NAU {font-size: 30px;color: yellow;}
+    .Estilo31NAU {color: #003E7E;}
+    .Estilo32NAU {font-size: 15px;color: #003E7E;font-weight: bold;}
+    .Estilo34NAU {color: #003E7E; font-weight: bold;}
+    .Estilo40NAU {font-size: 26px; color: #003E7E; font-weight: bold;}
+    .Estilo42NAU {color: #003E7E;}
+    .Estilo44NAU {color: #003E7E; font-weight: bold;}
+    .Estilo47NAU {color: #AA0000;}
+    .Estilo50NAU {font-size: 22px; color: #003E7E; font-weight: bold;}
+    .EstiloBtnNAU{background-color: #003E7E;color: white;}
+    
+    /* stolen from Torrent Freak */
+    .pinky0{color:#ff4794;}
+    .pinky1{color:#e0005e;font-weight:bold;}
+    .pinky2{background:#ff7ab2;}
+    .pinky3{background:#ff4794;}
+    .pinky4{background:#e0005e;}
+    .pinky5{color:white;background-color:#ff4794;border-bottom:2px solid #ff4794;}
+    .pinky5bold{background:#ff4794;color:white;margin:0 0 1em;text-shadow:0px 1px 1px #ad0048;font-size:1.1em;font-weight:600;}
+    .pinky6{background:#ff1476;border-bottom:2px solid #ad0048;}
+    .pinky7{background:#ff4794;color:silver;}
+    .pinky8{background:#ff7ab2;color:yellow;}
+        
+    /* stolen from Scala */
+    .aquaSlider 
+    {
+      color:#666666;
+      text-shadow: 0 1px 2px rgba(0,0,0,.5);
+      background:url(http://scala-ide.org/resources/images/bg.jpg) no-repeat top center #a6e5ec;
+      padding-top:15px;padding-bottom:15px;
+      -webkit-box-shadow: inset 0 10px 60px rgba(0,0,0,.5);
+      -moz-box-shadow: inset 0 10px 60px rgba(0,0,0,.5);
+    }
+    
+    /* stolen from Paige Hector */
+    .orangeYellow2 {background-color: #f3de7e;}    
+    .greenDarkBig {color: #006300; font-size: 21.5pt;}
+
+    /* stolen from msn */
+    .greenGreen2{font-weight:bold; color:#4a844a; font-size:1.3rem; line-height:1.384;}
+    .greenGreen4{color:#0b893e;}
+    .greenGreen5{color:#3ab161;}
+    .greenWhite2{color: White; background:#00924d; height:4.4rem; font-size:1.3rem; line-height:1.384;}
+    .greenBlack1{ background:#00924d; width:100%; height:18rem;}
+    
+    /* stolen from ???  */
+    .btn_fancy_gray
+    {
+      background-image: -webkit-gradient(linear,left top,left bottom,from(#eee),to(#ccc));
+      background-image: -webkit-linear-gradient(top,#eee,#ccc);
+      background-image: -moz-linear-gradient(top,#eee,#ccc);
+      background-image: -o-linear-gradient(top,#eee,#ccc);
+      background-image: linear-gradient(top,#eee,#ccc);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+      border: 1px solid #777;
+      padding: 0 1.5em;
+      margin: .5em;
+      font: 700 1em/2em Arial,Helvetica;
+      color: #333;
+      text-shadow: 0 1px 0 rgba(255,255,255,.8);
+      -webkit-border-radius: .2em;
+      border-radius: .2em;
+      -webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset,0 1px 0 rgba(0,0,0,.3);
+      box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset,0 1px 0 rgba(0,0,0,.3)
+    }
+    .btn_fancy_gold
+    {
+      background-image: -webkit-gradient(linear,left top,left bottom,from(#eee),to(#E5C06B));
+      background-image: -webkit-linear-gradient(top,#eee,#E5C06B);
+      background-image: -moz-linear-gradient(top,#eee,#E5C06B);
+      background-image: -o-linear-gradient(top,#eee,#E5C06B);
+      background-image: linear-gradient(top,#eee,#E5C06B);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#E5C06B');
+      border: 1px solid #777;
+      padding: 0 1.5em;
+      margin: .5em;
+      font: 700 1em/2em Arial,Helvetica;
+      color: #333;
+      text-shadow: 0 1px 0 rgba(255,255,255,.8);
+      -webkit-border-radius: .2em;
+      border-radius: .2em;
+      -webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset,0 1px 0 rgba(0,0,0,.3);
+      box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset,0 1px 0 rgba(0,0,0,.3)
+    }
+    .btn_fancy_teal
+    {
+      background-image: -webkit-gradient(linear,left top,left bottom,from(#eee),to(#2dbe60));
+      background-image: -webkit-linear-gradient(top,#eee,#2dbe60);
+      background-image: -moz-linear-gradient(top,#eee,#2dbe60);
+      background-image: -o-linear-gradient(top,#eee,#2dbe60);
+      background-image: linear-gradient(top,#eee,#2dbe60);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#2dbe60');
+      border: 1px solid #777;
+      padding: 0 1.5em;
+      margin: .5em;
+      font: 700 1em/2em Arial,Helvetica;
+      color: #333;
+      text-shadow: 0 1px 0 rgba(255,255,255,.8);
+      -webkit-border-radius: .2em;
+      border-radius: .2em;
+      -webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset,0 1px 0 rgba(0,0,0,.3);
+      box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset,0 1px 0 rgba(0,0,0,.3)
+    }
+    .btn_fancy_blue
+    {
+      background-image: -webkit-gradient(linear,left top,left bottom,from(#eee),to(#004cd6));
+      background-image: -webkit-linear-gradient(top,#eee,#004cd6);
+      background-image: -moz-linear-gradient(top,#eee,#004cd6);
+      background-image: -o-linear-gradient(top,#eee,#004cd6);
+      background-image: linear-gradient(top,#eee,#004cd6);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#004cd6');
+      border: 1px solid #777;
+      padding: 0 1.5em;
+      margin: .5em;
+      font: 700 1em/2em Arial,Helvetica;
+      font-size: 10pt;
+      color: #333;
+      text-shadow: 0 1px 0 rgba(255,255,255,.8);
+      -webkit-border-radius: .2em;
+      border-radius: .2em;
+      -webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset,0 1px 0 rgba(0,0,0,.3);
+      box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset,0 1px 0 rgba(0,0,0,.3)
+    }
+    .btn_fancy_flesh
+    {
+      background-image: -webkit-gradient(linear,left top,left bottom,from(#eee),to(#ff632e));
+      background-image: -webkit-linear-gradient(top,#eee,#ff632e);
+      background-image: -moz-linear-gradient(top,#eee,#ff632e);
+      background-image: -o-linear-gradient(top,#eee,#ff632e);
+      background-image: linear-gradient(top,#eee,#ff632e);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#ff632e');
+      border: 1px solid #777;
+      padding: 0 1.5em;
+      margin: .5em;
+      font: 700 1em/2em Arial,Helvetica;
+      color: #333;
+      text-shadow: 0 1px 0 rgba(255,255,255,.8);
+      -webkit-border-radius: .2em;
+      border-radius: .2em;
+      -webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset,0 1px 0 rgba(0,0,0,.3);
+      box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset,0 1px 0 rgba(0,0,0,.3)
+    }
+    .btn_fancy_redBlack
+    {
+      background-image: -webkit-gradient(linear,left top,left bottom,from(#000),to(red));
+      background-image: -webkit-linear-gradient(top,#000,red);
+      background-image: -moz-linear-gradient(top,#000,red);
+      background-image: -o-linear-gradient(top,#000,red);
+      background-image: linear-gradient(top,#000,red);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#000', EndColorStr='red');
+      border: 1px solid #777;
+      padding: 0 1.5em;
+      margin: .5em;
+      font: 700 1em/2em Arial,Helvetica;
+      color: #aaaaaa;
+      text-shadow: 0 1px 0 rgba(255,255,255,.8);
+      -webkit-border-radius: .2em;
+      border-radius: .2em;
+      -webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset,0 1px 0 rgba(0,0,0,.3);
+      box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset,0 1px 0 rgba(0,0,0,.3)
+    }
+    
+    .grayTitle{color: #666;font-size: 20px;font-weight: 700;}
+    .greenbox{background-color: #dcf5d7!important;border-top-color: #dcf5d7!important;}
+    .bluebox{background-color: #D6EFFE;}
+    .limeBanner
+    {
+      font-size: 12px;
+      background: #0f0;
+      color: black;
+      font-weight: 700;
+      text-align: center;
+    }
+    infoBoxHeading  
+    {
+      font-size: 12px;
+      font-weight: 700;
+      background: #bbc3d3;
+      color: #a52020
+    }
+    .aquaCyanDark
+    {
+      font-size: 14px;
+      color: #069;
+      font-weight: 700;
+    }
+    .navyOnYellow{color: #00F;background: #FF3;}
+    .grayBigHeading{font-size: 20px;font-weight: 700;color: #666;}
+    .orangeTiny{font-size: 10pt;font-weight: 700;color: #C60;}
+
+/* All the html named colors as color band styles. The following perl script generates the styles list. */
+/* #!/opt/local/bin/perl
+
+@colornames = ('AliceBlue','AntiqueWhite','Aqua','Aquamarine','Azure','Beige','Bisque','Black','BlanchedAlmond','Blue','BlueViolet','Brown','BurlyWood','CadetBlue','Chartreuse',
+'Chocolate','Coral','CornflowerBlue','Cornsilk','Crimson','Cyan','DarkBlue','DarkCyan','DarkGoldenRod','DarkGray','DarkGreen','DarkKhaki','DarkMagenta','DarkOliveGreen',
+'Darkorange','DarkOrchid','DarkRed','DarkSalmon','DarkSeaGreen','DarkSlateBlue','DarkSlateGry','DarkTurquoise','DarkViolet','DeepPink','DeepSkyBlue','DimGray',
+'DodgerBlue','FireBrick','FloralWhite','ForestGreen','Fuchsia','Gainsboro','GhostWhite','Gold','GoldenRod','Gray','Green','GreenYellow','HoneyDew','HotPink',
+'IndianRed','Indigo','Ivory','Khaki','Lavender','LavenderBlush','LawnGreen','LemonChiffon','LightBlue','LightCoral','LightCyan','LightGoldenRodYellow','LightGray','
+LightGreen','LightPink','LightSalmon','LightSeaGreen','LightSkyBlue','LightSlateGray','LightSteelBlue','LightYellow','Lime','LimeGreen','Linen',
+'Magenta','Maroon','MediumAquaMarine','MediumBlue','MediumOrchid','MediumPurple','MediumSeaGreen','MediumSlateBlue','MediumSpringGreen','MediumTurquoise',
+'MediumVioletRed','MidnightBlue','MintCream','MistyRose','Moccasin','NavajoWhite','Navy','OldLace','Olive','OliveDrab','Orange','OrangeRed','Orchid','PaleGoldenRod',
+'PaleGreen','PaleTurquoise','PaleVioletRed','PapayaWhip','PeachPuff','Peru','Pink','Plum','PowderBlue','Purple','Red','RosyBrown','RoyalBlue','SaddleBrown','Salmon',
+'SandyBrown','SeaGreen','SeaShell','Sienna','Silver','SkyBlue','SlateBlue','SlateGray','Snow','SpringGreen','SteelBlue','Tan','Teal','Thistle','Tomato',
+'Turquoise','Violet','Wheat','White','WhiteSmoke','Yellow','YellowGreen');
+
+foreach (@colornames) 
+{
+  print "    .barInside" . "$_" . "{color:" . "$_" . ";background-color:" . "$_" . ";}\n" ;
+}
+*/
+
+    .barInsideAliceBlue{color:AliceBlue;background-color:AliceBlue;}
+    .barInsideAntiqueWhite{color:AntiqueWhite;background-color:AntiqueWhite;}
+    .barInsideAqua{color:Aqua;background-color:Aqua;}
+    .barInsideAquamarine{color:Aquamarine;background-color:Aquamarine;}
+    .barInsideAzure{color:Azure;background-color:Azure;}
+    .barInsideBeige{color:Beige;background-color:Beige;}
+    .barInsideBisque{color:Bisque;background-color:Bisque;}
+    .barInsideBlack{color:Black;background-color:Black;}
+    .barInsideBlanchedAlmond{color:BlanchedAlmond;background-color:BlanchedAlmond;}
+    .barInsideBlue{color:Blue;background-color:Blue;}
+    .barInsideBlueViolet{color:BlueViolet;background-color:BlueViolet;}
+    .barInsideBrown{color:Brown;background-color:Brown;}
+    .barInsideBurlyWood{color:BurlyWood;background-color:BurlyWood;}
+    .barInsideCadetBlue{color:CadetBlue;background-color:CadetBlue;}
+    .barInsideChartreuse{color:Chartreuse;background-color:Chartreuse;}
+    .barInsideChocolate{color:Chocolate;background-color:Chocolate;}
+    .barInsideCoral{color:Coral;background-color:Coral;}
+    .barInsideCornflowerBlue{color:CornflowerBlue;background-color:CornflowerBlue;}
+    .barInsideCornsilk{color:Cornsilk;background-color:Cornsilk;}
+    .barInsideCrimson{color:Crimson;background-color:Crimson;}
+    .barInsideCyan{color:Cyan;background-color:Cyan;}
+    .barInsideDarkBlue{color:DarkBlue;background-color:DarkBlue;}
+    .barInsideDarkCyan{color:DarkCyan;background-color:DarkCyan;}
+    .barInsideDarkGoldenRod{color:DarkGoldenRod;background-color:DarkGoldenRod;}
+    .barInsideDarkGray{color:DarkGray;background-color:DarkGray;}
+    .barInsideDarkGreen{color:DarkGreen;background-color:DarkGreen;}
+    .barInsideDarkKhaki{color:DarkKhaki;background-color:DarkKhaki;}
+    .barInsideDarkMagenta{color:DarkMagenta;background-color:DarkMagenta;}
+    .barInsideDarkOliveGreen{color:DarkOliveGreen;background-color:DarkOliveGreen;}
+    .barInsideDarkorange{color:Darkorange;background-color:Darkorange;}
+    .barInsideDarkOrchid{color:DarkOrchid;background-color:DarkOrchid;}
+    .barInsideDarkRed{color:DarkRed;background-color:DarkRed;}
+    .barInsideDarkSalmon{color:DarkSalmon;background-color:DarkSalmon;}
+    .barInsideDarkSeaGreen{color:DarkSeaGreen;background-color:DarkSeaGreen;}
+    .barInsideDarkSlateBlue{color:DarkSlateBlue;background-color:DarkSlateBlue;}
+    .barInsideDarkSlateGray{color:DarkSlateGray;background-color:DarkSlateGray;}
+    .barInsideDarkTurquoise{color:DarkTurquoise;background-color:DarkTurquoise;}
+    .barInsideDarkViolet{color:DarkViolet;background-color:DarkViolet;}
+    .barInsideDeepPink{color:DeepPink;background-color:DeepPink;}
+    .barInsideDeepSkyBlue{color:DeepSkyBlue;background-color:DeepSkyBlue;}
+    .barInsideDimGray{color:DimGray;background-color:DimGray;}
+    .barInsideDodgerBlue{color:DodgerBlue;background-color:DodgerBlue;}
+    .barInsideFireBrick{color:FireBrick;background-color:FireBrick;}
+    .barInsideFloralWhite{color:FloralWhite;background-color:FloralWhite;}
+    .barInsideForestGreen{color:ForestGreen;background-color:ForestGreen;}
+    .barInsideFuchsia{color:Fuchsia;background-color:Fuchsia;}
+    .barInsideGainsboro{color:Gainsboro;background-color:Gainsboro;}
+    .barInsideGhostWhite{color:GhostWhite;background-color:GhostWhite;}
+    .barInsideGold{color:Gold;background-color:Gold;}
+    .barInsideGoldenRod{color:GoldenRod;background-color:GoldenRod;}
+    .barInsideGray{color:Gray;background-color:Gray;}
+    .barInsideGreen{color:Green;background-color:Green;}
+    .barInsideGreenYellow{color:GreenYellow;background-color:GreenYellow;}
+    .barInsideHoneyDew{color:HoneyDew;background-color:HoneyDew;}
+    .barInsideHotPink{color:HotPink;background-color:HotPink;}
+    .barInsideIndianRed {color:IndianRed ;background-color:IndianRed ;}
+    .barInsideIndigo{color:Indigo;background-color:Indigo;}
+    .barInsideIvory{color:Ivory;background-color:Ivory;}
+    .barInsideKhaki{color:Khaki;background-color:Khaki;}
+    .barInsideLavender{color:Lavender;background-color:Lavender;}
+    .barInsideLavenderBlush{color:LavenderBlush;background-color:LavenderBlush;}
+    .barInsideLawnGreen{color:LawnGreen;background-color:LawnGreen;}
+    .barInsideLemonChiffon{color:LemonChiffon;background-color:LemonChiffon;}
+    .barInsideLightBlue{color:LightBlue;background-color:LightBlue;}
+    .barInsideLightCoral{color:LightCoral;background-color:LightCoral;}
+    .barInsideLightCyan{color:LightCyan;background-color:LightCyan;}
+    .barInsideLightGoldenRodYellow{color:LightGoldenRodYellow;background-color:LightGoldenRodYellow;}
+    .barInsideLightGray{color:LightGray;background-color:LightGray;}
+    .barInsideLightGreen{color:LightGreen;background-color:LightGreen;}
+    .barInsideLightPink{color:LightPink;background-color:LightPink;}
+    .barInsideLightSalmon{color:LightSalmon;background-color:LightSalmon;}
+    .barInsideLightSeaGreen{color:LightSeaGreen;background-color:LightSeaGreen;}
+    .barInsideLightSkyBlue{color:LightSkyBlue;background-color:LightSkyBlue;}
+    .barInsideLightSlateGray{color:LightSlateGray;background-color:LightSlateGray;}
+    .barInsideLightSteelBlue{color:LightSteelBlue;background-color:LightSteelBlue;}
+    .barInsideLightYellow{color:LightYellow;background-color:LightYellow;}
+    .barInsideLime{color:Lime;background-color:Lime;}
+    .barInsideLimeGreen{color:LimeGreen;background-color:LimeGreen;}
+    .barInsideLinen{color:Linen;background-color:Linen;}
+    .barInsideMagenta{color:Magenta;background-color:Magenta;}
+    .barInsideMaroon{color:Maroon;background-color:Maroon;}
+    .barInsideMediumAquaMarine{color:MediumAquaMarine;background-color:MediumAquaMarine;}
+    .barInsideMediumBlue{color:MediumBlue;background-color:MediumBlue;}
+    .barInsideMediumOrchid{color:MediumOrchid;background-color:MediumOrchid;}
+    .barInsideMediumPurple{color:MediumPurple;background-color:MediumPurple;}
+    .barInsideMediumSeaGreen{color:MediumSeaGreen;background-color:MediumSeaGreen;}
+    .barInsideMediumSlateBlue{color:MediumSlateBlue;background-color:MediumSlateBlue;}
+    .barInsideMediumSpringGreen{color:MediumSpringGreen;background-color:MediumSpringGreen;}
+    .barInsideMediumTurquoise{color:MediumTurquoise;background-color:MediumTurquoise;}
+    .barInsideMediumVioletRed{color:MediumVioletRed;background-color:MediumVioletRed;}
+    .barInsideMidnightBlue{color:MidnightBlue;background-color:MidnightBlue;}
+    .barInsideMintCream{color:MintCream;background-color:MintCream;}
+    .barInsideMistyRose{color:MistyRose;background-color:MistyRose;}
+    .barInsideMoccasin{color:Moccasin;background-color:Moccasin;}
+    .barInsideNavajoWhite{color:NavajoWhite;background-color:NavajoWhite;}
+    .barInsideNavy{color:Navy;background-color:Navy;}
+    .barInsideOldLace{color:OldLace;background-color:OldLace;}
+    .barInsideOlive{color:Olive;background-color:Olive;}
+    .barInsideOliveDrab{color:OliveDrab;background-color:OliveDrab;}
+    .barInsideOrange{color:Orange;background-color:Orange;}
+    .barInsideOrangeRed{color:OrangeRed;background-color:OrangeRed;}
+    .barInsideOrchid{color:Orchid;background-color:Orchid;}
+    .barInsidePaleGoldenRod{color:PaleGoldenRod;background-color:PaleGoldenRod;}
+    .barInsidePaleGreen{color:PaleGreen;background-color:PaleGreen;}
+    .barInsidePaleTurquoise{color:PaleTurquoise;background-color:PaleTurquoise;}
+    .barInsidePaleVioletRed{color:PaleVioletRed;background-color:PaleVioletRed;}
+    .barInsidePapayaWhip{color:PapayaWhip;background-color:PapayaWhip;}
+    .barInsidePeachPuff{color:PeachPuff;background-color:PeachPuff;}
+    .barInsidePeru{color:Peru;background-color:Peru;}
+    .barInsidePink{color:Pink;background-color:Pink;}
+    .barInsidePlum{color:Plum;background-color:Plum;}
+    .barInsidePowderBlue{color:PowderBlue;background-color:PowderBlue;}
+    .barInsidePurple{color:Purple;background-color:Purple;}
+    .barInsideRed{color:Red;background-color:Red;}
+    .barInsideRosyBrown{color:RosyBrown;background-color:RosyBrown;}
+    .barInsideRoyalBlue{color:RoyalBlue;background-color:RoyalBlue;}
+    .barInsideSaddleBrown{color:SaddleBrown;background-color:SaddleBrown;}
+    .barInsideSalmon{color:Salmon;background-color:Salmon;}
+    .barInsideSandyBrown{color:SandyBrown;background-color:SandyBrown;}
+    .barInsideSeaGreen{color:SeaGreen;background-color:SeaGreen;}
+    .barInsideSeaShell{color:SeaShell;background-color:SeaShell;}
+    .barInsideSienna{color:Sienna;background-color:Sienna;}
+    .barInsideSilver{color:Silver;background-color:Silver;}
+    .barInsideSkyBlue{color:SkyBlue;background-color:SkyBlue;}
+    .barInsideSlateBlue{color:SlateBlue;background-color:SlateBlue;}
+    .barInsideSlateGray{color:SlateGray;background-color:SlateGray;}
+    .barInsideSnow{color:Snow;background-color:Snow;}
+    .barInsideSpringGreen{color:SpringGreen;background-color:SpringGreen;}
+    .barInsideSteelBlue{color:SteelBlue;background-color:SteelBlue;}
+    .barInsideTan{color:Tan;background-color:Tan;}
+    .barInsideTeal{color:Teal;background-color:Teal;}
+    .barInsideThistle{color:Thistle;background-color:Thistle;}
+    .barInsideTomato{color:Tomato;background-color:Tomato;}
+    .barInsideTurquoise{color:Turquoise;background-color:Turquoise;}
+    .barInsideViolet{color:Violet;background-color:Violet;}
+    .barInsideWheat{color:Wheat;background-color:Wheat;}
+    .barInsideWhite{color:White;background-color:White;}
+    .barInsideWhiteSmoke{color:WhiteSmoke;background-color:WhiteSmoke;}
+    .barInsideYellow{color:Yellow;background-color:Yellow;}
+    .barInsideYellowGreen{color:YellowGreen;background-color:YellowGreen;}
+    
+    /* stolen from Ian Webster (textbelt)*/
+    .grayLightTinyMute {color: #909090;font-size: 10px;}
+
+    /* stolen from my committee chair, Dr. Huang */
+    .blueHuang{color: #00C;font-weight:bold;}
+    .blueHuangLight{color:#3366FF;}
+    
+    /* stolen from amethystwebsitedesign.com */
+    .acmnSteelDashedBox 
+    {
+      border: 4px dashed #046ca3;
+      padding: 10px;
+      box-shadow: inset 0 -1px 0 0 #046ca3, inset 0 1px 0 0 #046ca3, 0 1px 0 0 #046ca3, 0 -1px 0 0 #046ca3;
+    }
+    .acmnPurpleBorderSilver
+    {
+      border: 1px solid silver;
+      border-right: 1px solid darkgray;
+      border-bottom: 1px solid darkgray;
+      -moz-box-shadow: inset 0 0 0 3px #7b6dc0;
+      -webkit-box-shadow: inset 0 0 0 3px #7b6dc0;
+      box-shadow: inset 0 0 0 3px #7b6dc0; 
+      padding: 24px 20px;
+      margin: 24px 0;
+      text-align: left;
+    }
+    
+    /* Stolen from NBC News */
+    nav
+    {
+      background-color:transparent;
+      padding-bottom:.375em
+    }
+    .asidePullQuote
+    {
+      content:" ";
+      display:table;
+      float:right;
+      width:50%;
+      color:#232323;
+      font-family:'Lucida Console', Monaco, monospace;
+      line-height:1.0534979424;
+      margin-bottom:0;
+      margin-top:6px;
+      border-left: 1px solid gray;
+    }
+    .grayLightTiny
+    {
+      color:#969696;
+      font-size:10pt;
+    }
+    .pointerTriangleLeft
+    {
+      vertical-align:middle;
+      display:inline-block;
+      -webkit-transform:rotate(360deg);
+      -ms-transform:rotate(360deg);
+      transform:rotate(360deg);
+      border-width:1.0678710938em .5339355469em;
+      border-style:solid;
+      border-color:transparent;
+      border-left-color:#940006;
+      border-right-width:2;
+      height:0;
+    }
+    .bodyClassThemeDark
+    {
+      color:#ccc;
+      background-color:#111;
+      margin-bottom:1.125em;
+      padding-top:1.125em;
+      margin-top:-1.125em
+    }
+    .divClassThemeWeather
+    {
+      background:-webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0)), color-stop(40%, #fff), to(rgba(197,209,228,.75)));
+      background:-webkit-linear-gradient(top, rgba(255,255,255,0)0, #fff 40%, rgba(197,209,228,.75)100%);
+      background:linear-gradient(to bottom, rgba(255,255,255,0)0, #fff 40%, rgba(197,209,228,.75)100%)
+    }
+    .divClassThemeNightly
+    {
+      color:#ccc;
+      padding-top:1.125em;
+      margin-top:-1.125em;
+      background:-webkit-gradient(linear, left top, left bottom, from(rgba(17,17,17,0)), color-stop(40%, #111), to(#111));
+      background:-webkit-linear-gradient(top, rgba(17,17,17,0)0, #111 40%, #111 100%);
+      background:linear-gradient(to bottom, rgba(17,17,17,0)0, #111 40%, #111 100%)
+    }
+    .divClassThemeFeature
+    {
+      background:#E9EDF0;
+      background:-webkit-gradient(linear, left top, left bottom, from(#FFF), color-stop(40%, #E9EDF0));
+      background:-webkit-linear-gradient(top, #FFF 0, #E9EDF0 40%);
+      background:linear-gradient(to bottom, #FFF 0, #E9EDF0 40%)
+    }
+    .blueSteelIndentDark
+    {
+      color:#5172a0;
+      padding-bottom:1.3333333333em;
+      padding-top:1.3333333333em;
+      font-size:1.125em;
+      line-height:1.6666666667
+    }
+    .blueSteelIndentLight
+    {
+      color:#4372b8;
+      margin-right:.474609375em;
+      font-size:.7901234568em;
+      line-height:1.8984375
+    }
+    .btn_Gold
+    {
+      margin-bottom:1.3333333333em;
+      font-weight:700;
+      padding-right:1.25em;
+      padding-left:1.25em;
+      padding-top:.46875em;
+      color:#1f1f1f;
+      background-color:#E5C06B;
+      -webkit-border-radius:0 0 5px 5px;
+      border-radius:0 0 5px 5px;
+      font-size:.7023319616em;
+      line-height:1.2013549805
+    }
+    
+    /* Stolen from Wordpress */
+    .btn_Green
+    {
+      background-color: #4DB24C;
+      color: white;
+      padding:3px 4px 3px 4px;
+      border-radius: 5px;      
+      font-weight: bold;
+      text-shadow: 0 0.05em 0.05em #1b7a1a;
+      border-left: solid 1px #49a346;
+      border-top: solid 1px #49a346;
+      border-right: solid 1px #1f7c1e;
+      border-bottom: solid 1px #1f7c1e;
+    }
+    .btn_Aqua
+    {
+      background-color: #4F97C9;
+      color: white;
+      padding:3px 4px 3px 4px;
+      border-radius: 5px;      
+      font-weight: bold;
+      text-shadow: 0 0.05em 0.05em #1b7a1a;
+      border-left: solid 1px #49a346;
+      border-top: solid 1px #49a346;
+      border-right: solid 1px #1f7c1e;
+      border-bottom: solid 1px #1f7c1e;
+    }
+    
+    /* stolen from Evernote */
+    .Btn_LightGreen
+    {
+      font-weight: 500;
+      color: White;
+      background-color: #2dbe60;
+      border-color: #1fae52;
+      padding:3px 4px 3px 4px;
+      border-radius: 5px;            
+    }
+    .fleshbox2
+    {
+      list-style: none;
+      border: 1px solid #b92219;
+      background-color: #ffd1d1;
+      padding: 8px;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-word
+    }
+    .greenBlack2
+    {
+      background-color: #2dbe60;
+      width: 100%;
+      height: 48px;
+      border-bottom: 1px solid #259d4f
+    }
+    .navBarOneLetterLeft
+    {
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe5f6fb', GradientType=0);
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: -moz-none;
+      -ms-user-select: none;
+      border: 1px solid #88b9c9;
+      border-radius: 50px;
+      color: #747474;
+      background-color: #f5fbfd;
+      background-image: -moz-linear-gradient(top, #fff, #e5f6fb);
+      background-repeat: repeat-x;
+      line-height: 1.41666667;
+      font-size: 1em;
+      font-weight: 400;
+      text-align: left;
+      text-overflow: clip;
+      padding: 0 4px;
+      width: 10px;
+      display: inline-block;
+    }
+    .grayDark
+    {
+      height: auto;
+      overflow: hidden;
+      background-color: #484848;
+      color:white;
+      margin-top: 60px
+    }
+    .greenOlive
+    {
+      background-color: #95d162;
+      border-color: #2b7143
+    }
+    .creamWarning
+    {
+      background-color: #fef4d1;
+      border: 1px solid #ebd174;
+      margin-bottom: 16px;
+      padding: 5px 16px 5px 16px;
+      color: red;
+      font-weight: bold;
+    }
+    .blueSteelCyanBold{color: #4183c4;font-weight: bold;}
+    .blueSteelNormal{color:#5172a0;}
+    .blueSteelUnderlineBorder
+    {
+      color: #5172a0;
+      text-decoration: underline;
+      outline: thin dotted #4a8db8;
+    }
+    .blueSteelUnderline
+    {
+      color: #5172a0;
+      text-decoration: underline;
+    }
+
+    /* Stolen from Microsoft */
+    .brownCodeBox
+    {
+      font-family: Consolas;
+      font-size:13px;
+      color: rgb(125, 39, 39); 
+      background-color: rgb(239, 240, 241);
+      display: block;
+      width:600px;
+    }
+    .purpleTextBold
+    {
+      color:#6621E5;
+      font-weight:bold;
+    }
+    
+    /* Stolen from it-ebooks */
+    .aquaHeading
+    {
+      font-family: Verdana, Geneva, sans-serif;
+      color: #08c;
+    }
+    
+    /* Stolen from Dana Mandino, NAU */
+    .purpleBig{font-size:20pt;color:#BD1398;}
+    .purpleMed{font-size:16pt;color:#BD1398;}
+    .purpleSml{font-size:12pt;color:#BD1398;}
+
+    /* stolen from github */
+    .purpleText{color: #6f42c1;}
+    .purpleOutline{padding: .9em 1.25em; color: #9f7be1; background: transparent; border: 1px solid purple; border-radius: .3em;}
+    .purpleDivBackground{color:white; background-color: #643ab0; background-image: linear-gradient(-180deg, #7e55c7 0%, #643ab0 90%); }
+    .purpleTextBackground{color:white; background-color: #6f42c1;}
+
+    /* stolen from Thibaut Courouble (http://www.cssflow.com) 
+       btnGlossyBlue is the master. You have to include it in order to use
+       the other colors.
+    */
+    
+    .btn_GlossyBlue
+    {
+      display: inline-block;
+      vertical-align: top;
+      overflow: hidden;
+      min-width: 96px;
+      line-height: 46px;
+      padding: 0 24px;
+      font-size: 14px;
+      color: white;
+      text-align: center;
+      text-shadow: 0 1px #154c86;
+      background-color: #247edd;
+      background-clip: padding-box;
+      border: 1px solid;
+      border-color: #1c65b2 #18589c #18589c;
+      border-radius: 4px;
+      -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+      box-shadow: inset 0 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+      background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+      background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+      background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04)); 
+    }
+    .btn_GlossyBlue:before  
+    {
+      content: '';
+      position: absolute;
+      top: -25%;
+      bottom: -25%;
+      left: -20%;
+      right: -20%;
+      border-radius: 50%;
+      background: transparent;
+      -webkit-box-shadow: inset 0 0 38px rgba(255, 255, 255, 0.5);
+      box-shadow: inset 0 0 38px rgba(255, 255, 255, 0.5);
+    }
+    
+    .btn_GlossyBlue:hover { background-color: #1a74d3; }
+    
+    .btn_GlossyBlue:active 
+    {
+      color: rgba(255, 255, 255, 0.9);
+      text-shadow: 0 -1px #154c86;
+      background: #1f71c8;
+      border-color: #113f70 #154c86 #1c65b2;
+      -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.4);
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.4);
+      background-image: -webkit-linear-gradient(top, #1a5da5, #3a8be0);
+      background-image: -moz-linear-gradient(top, #1a5da5, #3a8be0);
+      background-image: -o-linear-gradient(top, #1a5da5, #3a8be0);
+      background-image: linear-gradient(to bottom, #1a5da5, #3a8be0);
+    }
+    
+    .btn_GlossyBlue:active:before 
+    {
+      top: -50%;
+      bottom: -125%;
+      left: -15%;
+      right: -15%;
+      -webkit-box-shadow: inset 0 0 96px rgba(0, 0, 0, 0.2);
+      box-shadow: inset 0 0 96px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Green */
+    .btn_GlossyGreen
+    {
+      text-shadow: 0 1px #0d4d09;
+      background-color: #1ca913;
+      border-color: #147b0e #11640b #11640b;
+    }
+    
+    .btn_GlossyGreen:hover { background-color: #159b0d; }
+    
+    .btn_GlossyGreen:active 
+    {
+      text-shadow: 0 -1px #0d4d09;
+      background: #189210;
+      border-color: #093606 #0d4d09 #147b0e;
+      background-image: -webkit-linear-gradient(top, #126d0c, #20c016);
+      background-image: -moz-linear-gradient(top, #126d0c, #20c016);
+      background-image: -o-linear-gradient(top, #126d0c, #20c016);
+      background-image: linear-gradient(to bottom, #126d0c, #20c016);
+    }
+    
+    /* Red */
+    .btn_GlossyRed 
+    {
+      text-shadow: 0 1px #72100d;
+      background-color: #cd1d18;
+      border-color: #9f1713 #891310 #891310;
+    }
+    
+    .btn_GlossyRed:hover { background-color: #c01511; }
+    
+    .btn_GlossyRed:active
+    {
+      text-shadow: 0 -1px #72100d;
+      background: #b61a15;
+      border-color: #5b0d0b #72100d #9f1713;
+      background-image: -webkit-linear-gradient(top, #921511, #e4201b);
+      background-image: -moz-linear-gradient(top, #921511, #e4201b);
+    }
+    
+    /* stolen from foliovision.com */
+    
+    .blackCircle 
+    {
+      background-color: #000;
+      color: #fff;
+      width: 120px;
+      height: 120px;
+      display: block;
+      margin: 0 auto 18px;
+      text-align: center;
+      overflow: hidden;
+      -webkit-border-radius: 60px;
+      -moz-border-radius: 60px;
+      border-radius: 60px;
+      position: relative
+    }
+    
+    .fleshBackgroundPale
+    {
+      color: #a94442;
+      background-color: #f2dede;
+      border-color: #ebccd1
+    }
+    .aquaBackgroundPale 
+    {
+      color: #31708f;
+      background-color: #d9edf7;
+      border-color: #bce8f1
+    }
+    .greenBackgroundPale  
+    {
+      background-color: #dff0d8;
+      border-color: #d6e9c6;
+      color: #3c763d
+    }
+    .creamBackgroundPale
+    {
+      color: #8a6d3b;
+      background-color: #fcf8e3;
+      border-color: #faebcc
+    }
+    .btn_Cyan 
+    {
+      padding:3px 4px 3px 4px;
+      border-radius: 5px;      
+      font-size: 14px;
+      border: 1px solid #046a9e;
+      background: #9ecce2;
+      color: #333;
+      margin: 8px 0;
+    }
+    .greenBannerPale
+    {
+      padding: 6px 9px;
+      margin: 0 auto 25px;
+      box-sizing: border-box;
+      background: #e7f7d3;
+      border: 1px solid #6c3;
+      color: green;
+    }
+    .redBannerPale
+    {
+      padding: 6px 9px;
+      margin: 0 auto 25px;
+      box-sizing: border-box;
+      background: #ffebe8;
+      border: 1px solid #C00;
+      color: red; 
+    }
+    .redBannerPalePlusBlue
+    {
+      padding: 6px 9px;
+      margin: 0 auto 25px;
+      box-sizing: border-box;
+      background: #ffebe8;
+      border: 1px solid #C00;
+      color: #007acc;
+    }
+    
+    /* stolen from slashdot */
+    
+    .greenWhite3 
+    {
+      height: 30px;
+      color: white;
+      background-color: #004d4d;
+      z-index: 4; 
+      padding: 0 5px;
+      line-height: 20px;
+      border-radius: 4px;
+      transition: background-color 0.2s ease-in-out; 
+    }
+    .orangeDarkerBack 
+    {
+      height: 30px;
+      color: white;
+      z-index: 4; 
+      padding: 0 5px;
+      line-height: 20px;
+      border-radius: 4px;
+      transition: background-color 0.2s ease-in-out; 
+      background-color: #b7590b; 
+    }
+      
+    /* Stolen from Fabien Sanglard */
+        
+    .acmnRaisedBox2 
+    {
+      padding: 5px ;
+      background-color: white;
+      box-shadow: rgb(119, 119, 119) 3px 3px 3px;
+      border-style:solid;
+      border-width:1px;
+      border-color:#aaaaaa ;
+    }
+    
+    /* Stolen from Amazon */
+    
+    .btn_Amazon_Orange
+    {
+      background-color:#FD8;
+      background:-moz-linear-gradient(top,#FD8 15%,#F49D00 85%);
+      background:-webkit-gradient(linear,left top,left bottom,color-stop(0.15,#FD8),color-stop(0.85,#F49D00));
+      background:-webkit-linear-gradient(top,#FD8 15%,#F49D00 85%);
+      border:1px solid #2164A6;
+      margin-left:15px;
+      padding:5px 10px 4px 10px;
+      border-radius:4px;
+      -moz-border-radius:4px;
+      -webkit-border-radius:4px;
+      box-shadow:inset 0 0 2px #FFF;
+      -webkit-box-shadow:inset 0 0 2px #FFF;
+      -moz-box-shadow:inset 0 0 2px #FFF;
+    }
+
+    /* Stolen from Chris Coyier, CSS-tricks and CodePen */
+              
+    hr.hrstyle1{border-top: 1px solid #8c8b8b;}
+    hr.hrstyle2{border-top: 3px double #8c8b8b;}
+    hr.hrstyle3{border-top: 1px dashed #8c8b8b;}
+    hr.hrstyle4{border-top: 1px dotted #8c8b8b;}
+    hr.hrstyle5a{background-color: red;border: 2px solid red;}
+    hr.hrstyle5b{background-color: black;border: 2px solid black;}
+    hr.hrstyle5c{background-color: green;border: 2px solid green;}
+    hr.hrstyle6{background-color: #fff;border-top: 2px dotted #8c8b8b;}
+    hr.hrstyle7{border-top: 1px solid #8c8b8b;border-bottom: 1px solid #fff;}
+    hr.hrstyle8{border-top: 1px solid #8c8b8b;border-bottom: 1px solid #fff;}
+    
+    hr.hrstyle8:after 
+    {
+	    content: '';
+	    display: block;
+	    margin-top: 2px;
+	    border-top: 1px solid #8c8b8b;
+	    border-bottom: 1px solid #fff;
+    }
+    
+    hr.hrstyle9 
+    {
+	    border-top: 1px dashed #8c8b8b;
+	    border-bottom: 1px dashed #fff;
+    }
+    
+    hr.hrstyle10 
+    {
+	    border-top: 1px dotted #8c8b8b;
+	    border-bottom: 1px dotted #fff;
+    }
+    
+    hr.hrstyle13 
+    {
+	    height: 10px;
+	    border: 0;
+	    box-shadow: 0 10px 10px -10px #8c8b8b inset;
+    }
+
+    hr.hrstyle14
+    { 
+      border: 0; 
+      height: 1px; 
+      background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+      background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+      background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+      background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
+    }
+    
+    hr.hrstyle15 
+    {
+	    border-top: 4px double #8c8b8b;
+	    text-align: center;
+    }
+    hr.hrstyle15:after 
+    {
+	    content: '\002665';
+	    display: inline-block;
+	    position: relative;
+	    top: -15px;
+	    padding: 0 10px;
+	    background: #f0f0f0;
+	    color: #8c8b8b;
+	    font-size: 18px;
+    }
+    
+    hr.hrstyle16 {border-top: 1px dashed #8c8b8b;} 
+    hr.hrstyle16:after 
+    { 
+      content: '\002702'; 
+      display: inline-block; 
+      position: relative; 
+      top: -12px; 
+      left: 40px; 
+      padding: 0 3px; 
+      background: #f0f0f0; 
+      color: #8c8b8b; 
+      font-size: 18px;  
+    }
+    
+    hr.hrstyle17 
+    {
+	    border-top: 1px solid #8c8b8b;
+	    text-align: center;
+    }
+    hr.hrstyle17:after 
+    {
+	    content: '§';
+	    display: inline-block;
+	    position: relative;
+	    top: -14px;
+	    padding: 0 10px;
+	    background: #f0f0f0;
+	    color: #8c8b8b;
+	    font-size: 18px;
+	    -webkit-transform: rotate(60deg);
+	    -moz-transform: rotate(60deg);
+	    transform: rotate(60deg);
+    }
+    
+    hr.hrstyle18 
+    { 
+      height: 30px; 
+      border-style: solid; 
+      border-color: #8c8b8b; 
+      border-width: 1px 0 0 0; 
+      border-radius: 20px; 
+    } 
+    hr.hrstyle18:before 
+    { 
+      display: block; 
+      content: ""; 
+      height: 30px; 
+      margin-top: -31px; 
+      border-style: solid; 
+      border-color: #8c8b8b; 
+      border-width: 0 0 1px 0; 
+      border-radius: 20px; 
+    }
+    
+    .blinkMe 
+    {
+      animation-duration: 1s;
+      animation-name: blink;
+      animation-iteration-count: infinite;
+      animation-timing-function: steps(2, start);
+    }
+    @keyframes blink 
+    {
+      80% 
+      {
+        visibility: hidden;
+      }
+    }
+
+
