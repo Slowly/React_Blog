@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  
+  <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+  <link rel="stylesheet" type="text/css" href="assets/ast.css">
+  <link rel="stylesheet" type="text/css" href="assets/index.css">
+  <link rel="stylesheet" type="text/css" href="assets/react.css">
+      
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/16.12.0/umd/react.production.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.11.0/umd/react-dom.production.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.7.2/prop-types.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/html-react-parser@latest/dist/html-react-parser.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+  
+<script type="text/babel">
+  
+  class Dummy extends React.Component {render(){return (<div><h1 className="Black">Inside React</h1><br /></div>);}}
+
+  class Masthead extends React.Component 
+  {
+    constructor(props) 
+    {
+      super(props);
+    }
+    render()
+    {
+      return(
+        <div>
+        <div className="ast-site-identity">
+          <img src="https://avatars0.githubusercontent.com/u/46092834?s=460&v=4" height="70" width="70" />
+        </div>
+        <div className="ast-site-title-wrap">
+          <h1 className="site-title">
+            <a href="https://www.linkedin.com/in/johnbonifas/" target="_blank">
+              John Bonifas
+            </a>
+          </h1>
+          <p className="site-description">
+            <em>
+              My Journey from VBA to Functional-ES6-React-GraphQL Javascript
+            </em>
+          </p>
+          <p>
+            {Date()}
+          </p>
+        </div>
+        </div>
+      );
+    }
+  }
+
+  class Logo extends React.Component 
+  {
+    constructor(props) 
+    {
+      super(props);
+    }
+    render()
+    {
+      return(
+        <div className="reactLogo">
+          <a href="https://reactjs.org/" target="_blank" title="Built with React"><img src="assets/react2.png" height="20" width="20" /></a>
+        </div>
+      );
+    }
+  }
+  
+  const ReactContext = React.createContext();
+  
+  class MessageQueue extends React.Component 
+  {
+    constructor(props) 
+    {
+      super(props);
+      this.state = { message: 'Click a button to view an article' };
+    }
+    
+    render()
+    {
+      return(
+        <ReactContext.Provider value=
+          {{
+            state: this.state,
+            updateMessage: ( pageID ) => 
+            {  
+              const that = this;
+              fetch(new Request('./' + pageID + '.htm'))
+              .then(function(response)
+              {
+                return response.text();
+              })
+              .then(function(textStr) 
+              {
+                that.setState({ message: textStr });
+              })
+            }
+          }}>
+          {this.props.children}
+        </ReactContext.Provider>
+      )
+    }
+  }
+
+  class Button extends React.Component 
+  {
+    constructor(props) 
+    {
+      super(props);
+      this.state = { };
+    }
+    render()
+    {
+      return(
+        <ReactContext.Consumer>
+        {
+          (context) => 
+          (
+            <li>
+              <button onClick={()=>{context.updateMessage(this.props.fileName)}} 
+                      className="btn_fancy_blue">{this.props.fileName}</button>
+            </li>
+          )
+        }
+        </ReactContext.Consumer>
+      );
+    }
+  }
+  
+  class ButtonBar extends React.Component 
+  {
+    constructor(props) 
+    {
+      super(props);
+      this.state = { };
+    }
+    render()
+    {
+      return(
+        <div className="buttonBar">
+          <ul>
+            <Button fileName="121019_BuildingAreactBlogFromScratch" />
+            <Button fileName="Page2" />
+            <Button fileName="Page3" />
+          </ul>
+        </div>
+      );
+    }
+  }  
+  
+  class ArticleArea extends React.Component 
+  {
+    constructor(props) 
+    {
+      super(props);
+      this.state = 
+      { 
+
+      }
+    }
+    render()
+    {
+      return(
+      <div className="msgReceivingArea" id="msgReceivingArea" name="msgReceivingArea">
+        <ReactContext.Consumer>
+          {(context) => HTMLReactParser(context.state.message)}
+        </ReactContext.Consumer>
+      </div>
+      );
+    }
+  }  
+
+  class Application extends React.Component 
+  {
+    constructor(props) 
+    {
+      super(props);
+      this.state = { };
+    }
+    /*
+      COMPONENT RULES
+      ---------------
+      - The left parenthesis of the return statement of the render function MUST be on the same line as the return keyword
+      - For each component called out in the top-level object, a closing element is optional, but 
+        the entire collection of components MUST be wrapped by a plain HTML layout element 
+      - all elements MUST be closed, either with a forward slash or a closing tag - even line breaks: 
+        WRONG: <br>
+        RIGHT: <br /> OR <br></br>
+        ...even then, line breaks might not work
+    */
+    render()
+    {
+      return(
+        <div className="Container">
+          <MessageQueue>
+            <Masthead />
+            <ButtonBar />
+            <ArticleArea />
+            <Logo />
+          </MessageQueue>
+        </div>
+      );
+    }
+  }
+    
+  ReactDOM.render
+  (
+    <Application />,
+    document.getElementById('root')
+  );
+        
+</script>
+  
+<title>John Bonifas - This Might Work II</title>
+</head>
+
+<body>
+
+<div id="root"></div>  
+
+</body>
+</html>
