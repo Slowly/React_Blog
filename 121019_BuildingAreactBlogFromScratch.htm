@@ -1,0 +1,93 @@
+
+<div style="color:black;">
+  <h1 class="entry-title">12/8/2019: Building a React Blog From Scratch Using Fetch and the Context API</h1>
+  <address style="text-align:center;">React 16</address>
+  
+  <h3>Introduction</h3>    
+  <p>
+    This entry is a discussion of what I experienced when attempting to build a blog from scratch using the React framework. The concepts involved were: fetch(), promises, and the 
+    Context API.
+  </p>
+
+  <h3>HTML Components</h3>    
+  <p>I started with components that simply rendered HTML, just to get the React code to work. For example, the Masthead component:</p>
+  <pre><code>
+  class Masthead extends React.Component 
+  {
+    constructor(props) 
+    {
+      super(props);
+    }
+    render()
+    {
+      return(
+        ...HTML markup...
+      );
+    }
+  }
+  </code></pre>
+  <p>This was pretty straightforward.
+  
+  <h3>Component Communication</h3>    
+  <p>
+    The next part was getting the context API mechanism to work. I got the Provider and the Consumer components working, but I got hung up on the actual click action that triggered 
+    the message pass. 
+  </p>
+  <p>The reason was because the syntax for the message pass in the button consumer that I was using was actually executing the callback function, rather than passing it as a message to be executed in the provider component:
+  <pre><code>
+   // syntax I was using: 
+   &lt;button onClick={{context.updateMessage(this.props.fileName)}}&gt;
+   // corrected syntax:
+   &lt;button onClick={()=>{context.updateMessage(this.props.fileName)}}&gt;
+  </code></pre>
+  <p>This fixed the error, and the context API mechanism was working.
+
+  <h3>The File Reading Mechanism</h3>    
+  <p>
+    Now that the state and component communication mechanisms were working, I could add the fetch() and promise code to the Provider. The updateMessage() callback function calls the 
+    fetch() method to read the contents of a file whos name is based on the prop, then set the Provider state message prop to that text content: 
+  </p>
+  <pre><code>
+    &lt;ReactContext.Provider value=
+    {{
+      state: this.state,
+      updateMessage: ( pageID ) =&lt; 
+      {  
+        const that = this;
+        fetch(new Request('./' + pageID + '.txt'))
+        .then(function(response)
+        {
+          return response.text();
+        })
+        .then(function(textStr) 
+        {
+          that.setState({ message: textStr });
+        })
+      }
+    }}&gt;
+    {this.props.children}
+  &lt;/ReactContext.Provider&gt;
+  </code></pre>
+  <p>
+    Note the 'that' = 'this' assignment. This places the 'this' object within the scope of the updateMessage callback function. The file name prop gets passed into the callback, then 
+    passed to the fetch() function.
+  </p>
+
+  <h3>SUCCESS: Rendering the state text as HTML on Final Render</h3>    
+  <p>
+    The final problem to solve was to get the dangerouslySetInnerHTML method to accept the context state and render the text as HTML. I tried everything, and could not get it to work.<br>
+    AND THEN...I found <a href="https://github.com/remarkablemark/html-react-parser" target="_blank">this.</a> 
+  </p>
+  <p><span style="color:blue;font-weight:bold;font-style:italic;">html-react-parser</span> is a 3rd party library this is available on a CDN, and works in this scenario.</p>
+  <p>You reference it like this:</p>
+  <pre><code>
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://unpkg.com/html-react-parser@latest/dist/html-react-parser.min.js&quot;&gt;&lt;/script&gt;
+  </code></pre>
+  <p>And call it in your React Context API Consumer code like this:</p>
+  <pre><code>
+&lt;ReactContext.Consumer&gt;
+{(context) => HTMLReactParser(context.state.message)}
+&lt;/ReactContext.Consumer&gt;
+  </code></pre>
+
+</div>
